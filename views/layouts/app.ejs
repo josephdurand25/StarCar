@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css" type="text/css">
+    <link href="https://unpkg.com/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <script src="/js/app.js" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script> -->
+    <!-- <script src="https://unpkg.com/filepond/dist/filepond.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/forms@0.4.0/dist/tailwind-forms.min.js" defer></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js" defer></script> -->
+
+    <title> Star Car Company </title>
+    <script>
+        localStorage.getItem("_x_darkMode_on") === "true" &&
+          document.documentElement.classList.add("dark");
+      </script>
+</head>
+<body x-data x-bind="$store.global.documentBody" class="is-header-blur navigation:horizontal ">
+    <div class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900">
+        <div class="app-preloader-inner relative inline-block size-48"></div>
+    </div>
+    
+    <!-- Page Wrapper -->
+    <div   x-cloak >
+      <!-- header -->
+      <%- include('../partials/header') %>
+      
+      <!-- sidebar --> 
+      <%- include('../partials/sidebar') %>
+      
+      <!-- Main Content Wrapper -->
+       <div class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900 ">
+         <main class="main-content w-full px-[var(--margin-x)] pb-8 ">
+            <!-- Contenu spécifique à chaque page -->
+             <%- body %>
+           <%- include('../partials/footer') %>
+         </main>
+
+       </div>
+    </div>
+    <!-- footer -->
+        <!-- 
+        This is a place for Alpine.js Teleport feature 
+        @see https://alpinejs.dev/directives/teleport
+      -->
+      <div id="x-teleport-target"></div>
+      <script>
+        window.addEventListener("DOMContentLoaded", () => Alpine.start());
+      </script>
+</body>
+</html>
