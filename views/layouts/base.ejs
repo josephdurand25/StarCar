@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/css/main.css'/>
+    <script src="/js/app.js" defer></script>
+    <title>base 2</title>
+</head>
+<body x-data x-bind="$store.global.documentBody" class="is-header-blur navigation:horizontal ">
+    <div class="h-screen flex flex-col gap-5 items-center justify-start bg-gray-200 p-4">
+        <div class="w-2/3">
+            <section id="login" class="w-full p-4 mx-auto">
+                <div class="w-full p-6 border">
+                    <%- include('../partials/header2') %>
+                    <!-- sidebar --> 
+                    <!-- Main Content Wrapper -->
+                    <div class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900 ">
+                        <main class="main-content w-full m-2  px-[var(--margin-x)] pb-4 ">
+                        <!-- Contenu spécifique à chaque page -->
+                        <%- body %>
+                    </main>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="x-teleport-target"></div>
+      <script>
+        window.addEventListener("DOMContentLoaded", () => Alpine.start());
+    </script>
+</body>
+</html>
